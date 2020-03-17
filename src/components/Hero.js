@@ -3,12 +3,14 @@ import { useAuth0 } from "../react-auth0-spa";
 import { Container, Row, Col } from "reactstrap";
 
 
-//if youre not logged in, load default hero component.
+
 
 const Hero = () => {
   const { loading, user } = useAuth0();
 
-  if (loading || !user) {
+//if youre not logged in, load default hero component.
+
+  if ( !user) {
     return   <div className="text-center hero my-5">
       <h1 className="mb-4">Welcome to Cruise0!</h1>
 
