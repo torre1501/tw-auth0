@@ -24,10 +24,11 @@ const Hero = () => {
 
  const given = user.nickname.substr(0, user.nickname.indexOf('.'));
 
-  
+ if ( user.email_verified != true) {
 
   return (
   
+    
 
     console.log({user}),
     <Container className="mb-5">
@@ -36,6 +37,7 @@ const Hero = () => {
         <Col md style={{backgroundColor: "white"}}>
           
           <h1>Welcome {given}!</h1>
+          <h3>Reminder: Your email is not verified!</h3>
            <h3>Basic attributes:</h3>
 
 
@@ -56,7 +58,45 @@ const Hero = () => {
     
     </Container>
   );
-};
+}
+
+else
+
+return (
+  
+    
+
+  console.log({user}),
+  <Container className="mb-5">
+    <Row className="align-items-center profile-header mb-5 text-center text-md-left">
+
+      <Col md style={{backgroundColor: "white"}}>
+        
+        <h1>Welcome {given}!</h1>
+        <h3>Thank you for verifying your email.</h3>
+         <h3>Basic attributes:</h3>
+
+
+        <p className="lead text-muted">Email: {user.email}</p>
+        <p className="lead text-muted">Nickname: {user.nickname}</p>
+        <h3>Dymanic attributes:</h3>
+
+       
+       <p className="lead text-muted">Location: {user["https://trustvantage.com/country"]}</p>
+       <p className="lead text-muted">IP: {user["https://trustvantage.com/ip"]}</p>
+       <h3>User metadata attributes:</h3>
+       <p className="lead text-muted">Gender: {user["https://trustvantage.com/gender"]}</p>
+       <p className="lead text-muted">Favourite Cruise: {user["https://trustvantage.com/favCruise"]}</p>
+       
+
+      </Col>
+    </Row>
+  
+  </Container>
+);
+}
+
+;
 
 
 export default Hero;
